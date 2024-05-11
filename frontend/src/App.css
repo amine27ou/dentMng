@@ -1,0 +1,9 @@
+.grad-background{
+    background:linear-gradient(to right,rgb(46, 172, 235),rgb(174, 227, 254));
+}
+tr,td,th{
+    padding: 5px;
+}
+td{
+    text-align: center;
+}
