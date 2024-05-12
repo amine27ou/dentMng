@@ -21,6 +21,8 @@ import UpdateDoctor from "../components/dashboard/Doctors/UpdateDoctor";
 import Specializations from "../components/dashboard/Specializations/Specializations";
 import Appointments from "../components/dashboard/Appointments/Appointments";
 import AddAppointment from "../components/dashboard/Appointments/AddAppointment";
+import ShowAppointment from "../components/dashboard/Appointments/ShowAppointment";
+import MyDocument from "../components/pdf/PDFFile";
 
 export const router = createBrowserRouter([
   {
@@ -56,6 +58,8 @@ export const router = createBrowserRouter([
       { path: '/admin/specializations', element: <Specializations/> },
       { path: '/admin/appointments', element: <Appointments/> },
       { path: '/admin/appointments/create', element: <AddAppointment /> },
+      {path: '/admin/appointments/:id',element:<ShowAppointment/>},
+      
     ]
   }
 ]);

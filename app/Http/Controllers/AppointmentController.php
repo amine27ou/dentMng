@@ -32,13 +32,8 @@ public function index(Request $request)
         'services' => Service::all(),
     ]);
 }
-    public function show(Appointment $appointment){
-        return response()->json([
-            'appointment'=>$appointment
-        ]);
-    }
-    public function store(Request $request){
-        $data = $request->validate([
+public function store(Request $request){
+    $data = $request->validate([
             'doctor_id'=>'required',
             'patient_id'=>'required',
             'service_id'=>'required',
@@ -58,22 +53,34 @@ public function index(Request $request)
     }
     public function update(Appointment $appointment,Request $request){
         $data = $request->validate([
-            'doctor_id'=>'required',
-            'patient_id'=>'required',
-            'service_id'=>'required',
-            'appointment_date'=>'required|date',
-            'status'=>['required',Rule::in(['Scheduled','Canceled','Completed'])],
-            'amount'=>'required|int',
-            'payment_method'=>['required',Rule::in(['Cash','Credit Card'])],
-            'payment_status'=>['required',Rule::in(['Pending','Paid'])],
 
+            'status'=>['nullable',Rule::in(['Scheduled','Canceled','Completed'])],
+            'payment_status'=>['nullable',Rule::in(['Pending','Paid'])],
         ]);
-
-        $appointment->update($data);
+        if (isset($data['status'])) {
+            $appointment->status = $data['status'];
+        }
+    
+        if (isset($data['payment_status'])) {
+            $appointment->payment_status = $data['payment_status'];
+        }
+    
+        $appointment->save();
+        
         return response()->json([
             'message'=>'Appointment updated successfully!'
         ]);
     }
+    public function show( Appointment $appointment) {
+        
+        $appointment->load('patient', 'doctor', 'service');
+    
+        return response()->json([
+            'appointment' => $appointment
+        ]);
+    }
+    
+    
     public function destroy(Appointment $appointment){
         $appointment->delete();
 

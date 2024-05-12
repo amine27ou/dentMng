@@ -4,7 +4,6 @@ import { axiosClient } from '../../../api/axiosClient';
 import Loading from '../../Loading';
 import Pagination from '../../Pagination';
 import { FaEye } from "react-icons/fa";
-import { FaDownload } from "react-icons/fa6";
 import { MdDelete } from "react-icons/md";
 import { useAuthContext } from '../../../context/AuthContext';
 
@@ -124,7 +123,6 @@ export default function Appointments() {
                                 <td>
                                     <div className='flex gap-4 p-3'>
                                     <Link to={`/admin/appointments/${appointment.id}`}><FaEye className='text-green-600 cursor-pointer ' /></Link>
-                                    <button ><FaDownload className='text-blue-500 cursor-pointer ' /></button>
                                     <MdDelete onClick={()=>handleDelete(appointment.id)} className='text-red-600 cursor-pointer ' />
                                     </div>
                                 </td>
