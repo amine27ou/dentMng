@@ -17,6 +17,7 @@ export default function Sidebar({isOpen}) {
         <NavLink className={({isActive})=>isActive ? 'text-blue-400 text-1xl' : 'text-white text-1xl'} to='/admin/doctors'>Doctors</NavLink>
         <NavLink className={({isActive})=>isActive ? 'text-blue-400 text-1xl' : 'text-white text-1xl'} to='/admin/specializations'>Specializations</NavLink>
         <NavLink className={({isActive})=>isActive ? 'text-blue-400 text-1xl' : 'text-white text-1xl'} to='/admin/appointments'>Appointments</NavLink>
+        <NavLink className={({isActive})=>isActive ? 'text-blue-400 text-1xl' : 'text-white text-1xl'} to='/admin/services'>Services</NavLink>
     </div>
       </div>
     </div>}

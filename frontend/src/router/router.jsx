@@ -23,6 +23,9 @@ import Appointments from "../components/dashboard/Appointments/Appointments";
 import AddAppointment from "../components/dashboard/Appointments/AddAppointment";
 import ShowAppointment from "../components/dashboard/Appointments/ShowAppointment";
 import MyDocument from "../components/pdf/PDFFile";
+import AllServices from "../components/dashboard/Services/AllServices";
+import AddService from "../components/dashboard/Services/AddService";
+import UpdateService from "../components/dashboard/Services/UpdateService";
 
 export const router = createBrowserRouter([
   {
@@ -59,7 +62,9 @@ export const router = createBrowserRouter([
       { path: '/admin/appointments', element: <Appointments/> },
       { path: '/admin/appointments/create', element: <AddAppointment /> },
       {path: '/admin/appointments/:id',element:<ShowAppointment/>},
-      
+      {path:'/admin/services',element:<AllServices/>},
+      {path:'/admin/services/add',element:<AddService/>},
+      {path:'/admin/services/:id/edit',element:<UpdateService/>},
     ]
   }
 ]);
