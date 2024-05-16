@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaTooth } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
+import { useAuthContext } from '../context/AuthContext';
 
 export default function Register() {
+  const {getUser,user} = useAuthContext()
   const [formData, setFormData] = useState({
     first_name: '',
     last_name: '',
@@ -11,7 +13,7 @@ export default function Register() {
     confirm_password: '',
 
 });
-
+  const navigate = useNavigate()
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -22,9 +24,19 @@ export default function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic here
+
     console.log(formData);
   };
+
+  useEffect(() => {
+    if (user) {
+      getUser()
+      navigate('/')
+    } else if(!user){
+      localStorage.removeItem('token')
+      navigate('/login');
+    }
+  }, []);
 
   return (
     <div className='bg-gray-100 h-screen flex items-center justify-center flex-col'>

@@ -28,6 +28,7 @@ import UpdateService from "../components/dashboard/Services/UpdateService";
 import Medicines from "../components/dashboard/Medicines/Medicines";
 import AddMedicine from "../components/dashboard/Medicines/AddMedicine";
 import UpdateMedicine from "../components/dashboard/Medicines/UpdateMedicine";
+import BookApp from "../pages/BookApp";
 
 export const router = createBrowserRouter([
   {
@@ -43,7 +44,8 @@ export const router = createBrowserRouter([
       { path: '/medical-about-us', element: <AboutPage /> },
       { path: '/medical-contact', element: <Contact /> },
       { path: '/login', element: <Login /> },
-      { path: '/register', element: <Register /> }
+      { path: '/register', element: <Register /> },
+      { path: '/medical-appointment', element: <BookApp /> }
     ]
   },
   {

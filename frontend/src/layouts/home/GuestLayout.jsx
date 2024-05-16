@@ -30,6 +30,7 @@ export default function GuestLayout() {
                         <Link className='hover:text-blue-400 transition-all' to='/medical-contact'>Contact Us</Link>
                     </div>
                     <div className='flex gap-4 items-center'>
+                    <Link to='/medical-appointment' className='bg-blue-400 text-white p-2 rounded-md hover:bg-transparent hover:text-blue-400 hover:border-blue-400 hover:border border border-blue-400'>Book An Appointment</Link>
                     {user ? (
     <>
         {(user.role === 'admin' || user.role === 'doctor') ? (
@@ -58,7 +59,7 @@ export default function GuestLayout() {
     </Link>
 )}
 
-                        <Link to='/register' className='bg-blue-400 text-white p-2 rounded-md hover:bg-transparent hover:text-blue-400 hover:border-blue-400 hover:border border border-blue-400'>Book An Appointment</Link>
+                        
                     </div>
                 </div>
             </div>
