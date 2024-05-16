@@ -1,5 +1,4 @@
 <?php
-
 return [
 
     /*
@@ -44,6 +43,10 @@ return [
             'driver' => 'session',
             'provider' => 'doctors',
         ],
+        'patient' => [
+            'driver' => 'session',
+            'provider' => 'patients',
+        ],
     ],
 
     /*
@@ -74,10 +77,10 @@ return [
             'model' => App\Models\Doctor::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'patients' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Patient::class,
+        ],
     ],
 
     /*
@@ -108,6 +111,12 @@ return [
         ],
         'doctors' => [
             'provider' => 'doctors',
+            'table' => 'password_reset_tokens',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'patients' => [
+            'provider' => 'patients',
             'table' => 'password_reset_tokens',
             'expire' => 60,
             'throttle' => 60,

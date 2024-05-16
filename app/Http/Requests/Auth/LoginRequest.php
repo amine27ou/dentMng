@@ -45,6 +45,7 @@ class LoginRequest extends FormRequest
             !Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))
             && !Auth::guard('doctor')->attempt($this->only('email', 'password'), $this->boolean('remember'))
             && !Auth::guard('web')->attempt($this->only('email', 'password'), $this->boolean('remember'))
+            && !Auth::guard('patient')->attempt($this->only('email', 'password'), $this->boolean('remember'))
         ) {
             RateLimiter::hit($this->throttleKey());
 

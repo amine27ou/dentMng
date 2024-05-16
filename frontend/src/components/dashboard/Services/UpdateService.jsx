@@ -8,6 +8,7 @@ import Loading from '../../Loading';
 export default function UpdateService() {
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
+  const [service, setService] = useState();
   const { setMessage } = useAuthContext();
   const { id } = useParams();
   const [formData, setFormData] = useState({
@@ -54,6 +55,7 @@ export default function UpdateService() {
         `${import.meta.env.VITE_BACKEND_URL}api/services/${id}`
       );
       const serviceData = res.data.service;
+      setService(res.data.service)
       setFormData({ 
         name: serviceData.name || '',
         category: serviceData.category || '',
@@ -87,7 +89,7 @@ export default function UpdateService() {
         </Link>
       </div>
       <form onSubmit={handleSubmit} className="bg-slate-700 p-5 rounded-lg mt-5">
-        {Object.values(formData).some((value) => value === '') ? (
+        {!service ? (
           <Loading />
         ) : (
           <>

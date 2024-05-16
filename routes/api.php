@@ -3,6 +3,7 @@
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SpecializationController;
@@ -20,13 +21,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware(['auth:sanctum,doctor,web'])->get('/user', function (Request $request) {
+Route::middleware(['auth:sanctum,doctor,web,patient'])->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::apiResource('patients',PatientController::class)->middleware('auth:sanctum');
-Route::apiResource('doctors',DoctorController::class)->middleware('auth:sanctum,doctor,web');
-Route::apiResource('appointments',AppointmentController::class)->middleware('auth:sanctum,doctor,web');
-Route::apiResource('patients',PatientController::class)->middleware('auth:sanctum,doctor,web');
-Route::apiResource('specializations',SpecializationController::class)->middleware('auth:sanctum,doctor,web');
-Route::apiResource('services',ServiceController::class)->middleware('auth:sanctum,doctor,web');
-Route::get('/dashboard',[DashboardController::class,'index'])->middleware('auth:sanctum,doctor,web');
+Route::apiResource('patients',PatientController::class)->middleware('auth:sanctum,doctor,web,patient');
+Route::apiResource('doctors',DoctorController::class)->middleware('auth:sanctum,doctor,web,patient');
+Route::apiResource('appointments',AppointmentController::class)->middleware('auth:sanctum,doctor,web,patient');
+Route::apiResource('patients',PatientController::class)->middleware('auth:sanctum,doctor,web,patient');
+Route::apiResource('specializations',SpecializationController::class)->middleware('auth:sanctum,doctor,web,patient');
+Route::apiResource('services',ServiceController::class)->middleware('auth:sanctum,doctor,web,patient');
+Route::apiResource('medicines',MedicineController::class)->middleware('auth:sanctum,doctor,web,patient');
+Route::get('/dashboard',[DashboardController::class,'index'])->middleware('auth:sanctum,doctor,web,patient');

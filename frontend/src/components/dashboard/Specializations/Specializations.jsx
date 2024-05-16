@@ -85,7 +85,7 @@ export default function Specializations() {
     return (
         <div className='bg-slate-800 min-h-screen p-10 text-white'>
             <div>
-                <h1 className='text-3xl'>Patients</h1>
+                <h1 className='text-3xl'>Specializations</h1>
             </div>
             <div className='mt-5'>
                 <button onClick={() => setAddFormIsOpen(!addFormIsOpen)} className="bg-blue-400 text-white p-2 rounded-md">Add Specialization</button>

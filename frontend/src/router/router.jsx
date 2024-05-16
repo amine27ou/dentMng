@@ -22,10 +22,12 @@ import Specializations from "../components/dashboard/Specializations/Specializat
 import Appointments from "../components/dashboard/Appointments/Appointments";
 import AddAppointment from "../components/dashboard/Appointments/AddAppointment";
 import ShowAppointment from "../components/dashboard/Appointments/ShowAppointment";
-import MyDocument from "../components/pdf/PDFFile";
 import AllServices from "../components/dashboard/Services/AllServices";
 import AddService from "../components/dashboard/Services/AddService";
 import UpdateService from "../components/dashboard/Services/UpdateService";
+import Medicines from "../components/dashboard/Medicines/Medicines";
+import AddMedicine from "../components/dashboard/Medicines/AddMedicine";
+import UpdateMedicine from "../components/dashboard/Medicines/UpdateMedicine";
 
 export const router = createBrowserRouter([
   {
@@ -65,6 +67,9 @@ export const router = createBrowserRouter([
       {path:'/admin/services',element:<AllServices/>},
       {path:'/admin/services/add',element:<AddService/>},
       {path:'/admin/services/:id/edit',element:<UpdateService/>},
+      {path:'/admin/medicines',element:<Medicines/>},
+      {path:'/admin/medicines/add',element:<AddMedicine/>},
+      {path:'/admin/medicines/:id/edit',element:<UpdateMedicine/>},
     ]
   }
 ]);

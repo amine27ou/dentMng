@@ -17,13 +17,13 @@ class AuthenticatedSessionController extends Controller
 {
     $request->authenticate();
 
-    $guards = ['web', 'doctor'];
+    $guards = ['web', 'doctor','patient'];
     $user = null;
 
     foreach ($guards as $guard) {
         $currentGuard = Auth::guard($guard);
         if ($currentGuard->check()) {
-            $user = $currentGuard->user();
+            $user = $currentGuard->user();  
             break;
         }
     }
