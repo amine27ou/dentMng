@@ -104,7 +104,17 @@ export default function AddPatient() {
                     </div>
                 </div>
                 <button type="submit" className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-3'>{loading ? <AiOutlineLoading3Quarters className='text-white animate-spin' /> : 'Register'}</button>
-                <button onClick={setFormData({})} className='bg-gray-500 hover:bg-gray-400 text-white font-bold py-2 px-4 rounded m-3'>Discard</button>
+                <button onClick={() => setFormData({
+    first_name: '',
+    last_name: '',
+    email: '',
+    password: '',
+    confirm_password: '',
+    gender: '',
+    phone: '',
+    address: '',
+    birthdate: ''
+})} className='bg-gray-500 hover:bg-gray-400 text-white font-bold py-2 px-4 rounded m-3'>Discard</button>
             </form>
         </div>
     );

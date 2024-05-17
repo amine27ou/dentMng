@@ -39,9 +39,9 @@ public function store(Request $request){
             'service_id'=>'required',
             'appointment_date'=>'required|date',
             'status'=>['required',Rule::in(['Scheduled','Canceled','Completed'])],
-            'amount'=>'required|int',
+            'amount'=>'nullable|int',
             'payment_method'=>['required',Rule::in(['Cash','Credit Card'])],
-            'payment_status'=>['required',Rule::in(['Pending','Paid'])],
+            'payment_status'=>['nullable',Rule::in(['Pending','Paid'])],
             
         ]);
 

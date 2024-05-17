@@ -18,9 +18,9 @@ return new class extends Migration
             $table->foreignId('service_id')->constrained()->cascadeOnDelete();
             $table->date('appointment_date');
             $table->string('status');
-            $table->string('amount');
+            $table->string('amount')->nullable();
             $table->string('payment_method');
-            $table->string('payment_status');//pending,paid
+            $table->string('payment_status')->nullable();
             $table->timestamps();
         });
     }
